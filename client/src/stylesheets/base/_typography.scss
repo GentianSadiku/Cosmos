@@ -1,0 +1,11 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font: normal 125% / 1.4 $text-font-stack;
+  background-color: $background-color;
+  background-image: url('../../assets/background.svg');
+  background-size: cover;
+  background-position: center center;
+}

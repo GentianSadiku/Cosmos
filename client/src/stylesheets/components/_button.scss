@@ -1,0 +1,13 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.button {
+    border: 0;
+    padding: 10px 20px;
+    color: $text-color;
+    background-color: $brand-color;  
+    border-radius: 10px;
+    font-size: 13px;
+    text-transform: uppercase;
+}

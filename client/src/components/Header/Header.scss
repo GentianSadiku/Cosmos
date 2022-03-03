@@ -1,0 +1,43 @@
+@import "../../stylesheets/abstracts/mixins";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  border-bottom: 1px solid #2e3644;
+
+  @include breakpoint(sm) {
+    padding: 10px;
+  }
+
+  @include breakpoint(md) {
+    padding: 15px;
+  }
+  
+  @include breakpoint(md) {
+    padding: 25px;
+  }
+
+  &__logo {
+    img {
+        max-width: 80px;
+    }
+  }
+
+  &__navigation {
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+
+      li {
+        display: inline-block;
+        padding: 0 10px;
+        text-transform: uppercase;
+        font-size: 13px;
+      }
+    }
+  }
+
+}
