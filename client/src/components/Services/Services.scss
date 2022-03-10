@@ -1,0 +1,46 @@
+// @import "../../stylesheets/abstracts/mixins";
+
+.services {
+  background: gray;
+  padding: 3rem 3rem;
+  align-items: center;
+
+  &__headline {
+    padding: 0;
+
+    h1 {
+      font-size: 1.6rem;
+      line-height: 1.2;
+      letter-spacing: 0.1rem;
+      margin: 0;
+    }
+    p {
+      color: rgb(215, 221, 223);
+      margin: 0;
+    }
+  }
+
+  &__features {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+/* Grid */
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .grid--1x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid--1x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

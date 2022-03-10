@@ -1,0 +1,22 @@
+@import "../../stylesheets/abstracts/mixins";
+
+.hero {
+  text-align: center;
+  padding-top: 3rem;
+  min-height: 50vh;
+
+  h1 {
+    letter-spacing: 2px;
+
+    @include breakpoint(lg) {
+      font-size: 3.4rem;
+    }
+  }
+
+  p {
+    padding: 0 1rem;
+    @include breakpoint(lg) {
+      font-size: 1.4rem;
+    }
+  }
+}
