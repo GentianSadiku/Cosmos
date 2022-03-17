@@ -3,11 +3,41 @@
 // -----------------------------------------------------------------------------
 
 .button {
-    border: 0;
-    padding: 10px 20px;
-    color: $text-color;
-    background-color: $brand-color;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 10px 30px;
+  color: $text-color;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  border: 1px solid #d7d7d7;
+  opacity: 0.8;
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &--default {
+    background-image: linear-gradient(
+      270deg,
+      rgba(164, 147, 247, 0.89) 0%,
+      rgba(235, 90, 102, 0.89) 100%
+    );
     border-radius: 10px;
-    font-size: 13px;
-    text-transform: uppercase;
+  }
+
+  &--transparent {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+  }
+
+  &--large {
+    min-width: 280px;
+    padding: 10px 25px;
+  }
+
+  @include on-event {
+    opacity: 1;
+  }
 }

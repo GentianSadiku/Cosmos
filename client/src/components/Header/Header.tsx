@@ -1,4 +1,6 @@
 import React from "react";
+import CostumIcon from "../CostumIcon/CostumIcon";
+
 import Logo from "../../assets/logo.svg";
 
 import "./Header.scss";
@@ -22,7 +24,10 @@ const Header: React.FC<HeaderProps> = () => {
       </nav>
 
       <div className="header__wallet">
-          <button className="button button--default">Connect Wallet</button>
+        <button className="button button--default">
+          <CostumIcon iconName="wallet" />
+          Connect Wallet
+        </button>
       </div>
     </header>
   );

@@ -1,0 +1,25 @@
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-right: 15px;
+
+  &--info {
+    background-image: url("../../assets/icons/icon-info.svg");
+  }
+
+  &--wallet {
+    background-image: url("../../assets/icons/icon-wallet.svg");
+  }
+
+  &--wallet-outline {
+    background-image: url("../../assets/icons/icon-wallet-outline.svg");
+  }
+
+  &--arrow-right {
+    background-image: url("../../assets/icons/icon-arrow-right.svg");
+  }
+}

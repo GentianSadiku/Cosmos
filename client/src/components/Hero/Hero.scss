@@ -4,8 +4,15 @@
   text-align: center;
   padding-top: 3rem;
   min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   h1 {
+    margin: 0;
+    font-family: 'Anton', sans-serif;
+    font-size: 10vw;
     letter-spacing: 2px;
 
     @include breakpoint(lg) {
@@ -15,6 +22,7 @@
 
   p {
     padding: 0 1rem;
+    font-weight: 100;
     @include breakpoint(lg) {
       font-size: 1.4rem;
     }

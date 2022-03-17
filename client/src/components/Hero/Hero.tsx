@@ -9,12 +9,12 @@ const Hero: React.FC = () => {
         SEND CRYPTO <br /> ACCROS THE WORLD
       </h1>
       <div className="description">
-        <GradientLine />
+        <GradientLine className="gradient-line--static-width"/>
         <p>
           Swap, earn, and build on the leading decentralized crypto trading
           protocol.
         </p>
-        <GradientLine />
+        <GradientLine className="gradient-line--static-width"/>
       </div>
     </section>
   );
