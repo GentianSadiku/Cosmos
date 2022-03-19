@@ -5,16 +5,30 @@ import { contractABI, contractAddress } from "../utils/constants";
 
 declare var window: any;
 
-interface ContextState {}
+interface ContextState {
+  transactionCount: string | null;
+  connectWallet: () => Promise<void>;
+  transactions: never[];
+  currentAccount: string;
+  isLoading: boolean;
+  sendTransaction: () => Promise<void>;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>, name: string) => void;
+  formData: {
+    addressTo: string;
+    amount: string;
+    keyword: string;
+    message: string;
+  };
+}
 
 //set an empty object as default state
 export const TransactionContext = React.createContext({} as ContextState);
 
 const { ethereum } = window;
-ethereum.enable();
+let provider: ethers.providers.Web3Provider;
 
 const createEthereumContract = () => {
-  const provider = new ethers.providers.Web3Provider(ethereum);
+  provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
   const transactionsContract = new ethers.Contract(
     contractAddress,
@@ -86,7 +100,6 @@ export const TransactionsProvider = ({
   const checkIfWalletIsConnect = async () => {
     try {
       if (!ethereum) return alert("Please install MetaMask.");
-
       const accounts = await ethereum.request({ method: "eth_accounts" });
 
       if (accounts.length) {
@@ -104,10 +117,10 @@ export const TransactionsProvider = ({
   const checkIfTransactionsExists = async () => {
     try {
       if (ethereum) {
+        if (ethereum.selectedAddress === null) return;
         const transactionsContract = createEthereumContract();
         const currentTransactionCount =
           await transactionsContract.getTransactionCount();
-
         window.localStorage.setItem(
           "transactionCount",
           currentTransactionCount
@@ -115,7 +128,6 @@ export const TransactionsProvider = ({
       }
     } catch (error) {
       console.log(error);
-
       throw new Error("No ethereum object");
     }
   };
