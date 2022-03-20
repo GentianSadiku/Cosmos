@@ -1,0 +1,23 @@
+.transaction {
+  border-width: 1px solid gray;
+  border-radius: 10px;
+  border-style: groove;
+  padding: 1rem;
+  margin: 1rem;
+  margin-bottom: 0.4rem;
+
+  p {
+    margin: 0;
+  }
+
+  &--headline {
+    text-align: center;
+  }
+
+  &--time {
+    font-size: medium;
+    padding: 1rem 0;
+    text-align: right;
+    border-radius: 8px;
+  }
+}

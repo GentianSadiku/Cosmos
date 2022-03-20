@@ -25,10 +25,9 @@ interface ContextState {
 export const TransactionContext = React.createContext({} as ContextState);
 
 const { ethereum } = window;
-let provider: ethers.providers.Web3Provider;
 
 const createEthereumContract = () => {
-  provider = new ethers.providers.Web3Provider(ethereum);
+  const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
   const transactionsContract = new ethers.Contract(
     contractAddress,
