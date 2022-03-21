@@ -1,9 +1,15 @@
+import { useContext } from "react";
 import CostumIcon from "../CostumIcon/CostumIcon";
+import { TransactionContext } from "../../context/TransactionContext";
+import shortenAddress from "../../utils/shortenAddres";
+
 import "./ConnectWallet.scss";
 
 interface ConnectWalletProps {}
 
 const ConnectWallet: React.FC<ConnectWalletProps> = () => {
+  const { connectWallet, currentAccount } = useContext(TransactionContext);
+
   return (
     <section className="connect-wallet">
       <div className="connect-wallet__inner">
@@ -17,13 +23,16 @@ const ConnectWallet: React.FC<ConnectWalletProps> = () => {
           iconHeight="20px"
         />
         <div className="pt-right">
-          <button className="button button--transparent button--large">
+          <button
+            className="button button--transparent button--large"
+            onClick={() => connectWallet()}
+          >
             <CostumIcon
               iconName="wallet-outline"
               iconWidth="30px"
               iconHeight="30px"
             />
-            Connect Wallet
+            {currentAccount ? shortenAddress(currentAccount) : "Connect Wallet"}
           </button>
         </div>
       </div>

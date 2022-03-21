@@ -1,7 +1,7 @@
-
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import ConnectWallet from "./components/ConnectWallet/ConnectWallet";
+import TransactionsSection from "./components/TransactionsSection/TransactionsSection";
 
 const App = () => {
   return (
@@ -9,6 +9,7 @@ const App = () => {
       <Header />
       <Hero />
       <ConnectWallet />
+      <TransactionsSection />
     </main>
   );
 };

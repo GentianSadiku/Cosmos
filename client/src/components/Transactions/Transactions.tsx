@@ -19,7 +19,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
           </div>
         ) : (
           <h3 className="text">
-            Connecy your account to see the latest transactions
+            Connect your account to see the latest transactions
           </h3>
         )}
       </div>

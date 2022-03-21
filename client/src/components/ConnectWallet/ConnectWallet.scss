@@ -23,7 +23,6 @@
   max-width: 1300px;
   margin: 10px auto;
 
-
   @include breakpoint(xs) {
     min-height: auto;
   }
@@ -33,6 +32,7 @@
     position: absolute;
     bottom: -20%;
     right: 0;
+    z-index: -1;
     height: 300px;
     width: 300px;
     opacity: 0.3;
