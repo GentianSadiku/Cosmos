@@ -21,6 +21,7 @@ const Form: React.FC<FormProps> = () => {
 
   return (
     <form className="form">
+      <h3>Send Eth</h3>
       <Input
         placeholder="Address To"
         name="addressTo"
@@ -45,7 +46,12 @@ const Form: React.FC<FormProps> = () => {
         type="text"
         handleChange={handleChange}
       />
-      <button onClick={(e) => handleSubmit(e)}>Send</button>
+      <button
+        className="button button--default"
+        onClick={(e) => handleSubmit(e)}
+      >
+        Send
+      </button>
     </form>
   );
 };
