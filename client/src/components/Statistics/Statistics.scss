@@ -1,0 +1,50 @@
+@import "../../stylesheets/abstracts/mixins";
+
+$border-color: hsl(0, 0%, 41%);
+
+.statistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 5rem 0;
+
+  &__numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 14rem;
+    border: 2px solid $border-color;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    margin: 2rem 0;
+
+    @include breakpoint(xs) {
+      grid-template-columns: repeat(1, 1fr);
+      height: auto;
+    }
+  }
+
+  &__box {
+    min-width: 10rem;
+
+    @include breakpoint(xs) {
+      padding: 2rem 0;
+    }
+  }
+
+  &--middle {
+    width: 100%;
+    border-right: 2px solid $border-color;
+    border-left: 2px solid $border-color;
+
+    @include breakpoint(xs) {
+      border-width: 0;
+      border-top: 2px solid $border-color;
+      border-bottom: 2px solid $border-color;
+    }
+  }
+}

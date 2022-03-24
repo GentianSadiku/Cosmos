@@ -3,6 +3,8 @@ import Hero from "./components/Hero/Hero";
 import ConnectWallet from "./components/ConnectWallet/ConnectWallet";
 import Services from "./components/Services/Services";
 import TransactionsSection from "./components/TransactionsSection/TransactionsSection";
+import Footer from "./components/Footer/Footer";
+import Statistics from "./components/Statistics/Statistics";
 
 const App = () => {
   return (
@@ -11,7 +13,9 @@ const App = () => {
       <Hero />
       <ConnectWallet />
       <Services />
+      <Statistics />
       <TransactionsSection />
+      <Footer />
     </main>
   );
 };

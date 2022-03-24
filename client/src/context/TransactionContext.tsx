@@ -96,6 +96,12 @@ export const TransactionsProvider = ({
     }
   };
 
+  const reloadWhenAccountsChanged = () => {
+    window.ethereum.on("accountsChanged", (accounts: string[]) => {
+      window.location.reload(false);
+    });
+  };
+
   const checkIfWalletIsConnect = async () => {
     try {
       if (!ethereum) return alert("Please install MetaMask.");
@@ -198,6 +204,7 @@ export const TransactionsProvider = ({
   useEffect(() => {
     checkIfWalletIsConnect();
     checkIfTransactionsExists();
+    reloadWhenAccountsChanged();
   }, [transactionCount]);
 
   return (
