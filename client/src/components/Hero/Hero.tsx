@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
-import { Types } from "../../context/reducers";
-
 import GradientLine from "../GradientLine/GradientLine";
 import "./Hero.scss";
 
 function Hero(): JSX.Element {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   return (
     <section
@@ -18,13 +16,7 @@ function Hero(): JSX.Element {
       </h1>
       <div className="description">
         <GradientLine className="gradient-line--static-width" />
-        <p
-          onClick={() => {
-            dispatch({
-              type: Types.connectWalletModalOpen,
-            });
-          }}
-        >
+        <p>
           Swap, earn, and build on the leading decentralized crypto trading
           protocol.
         </p>

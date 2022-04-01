@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import StatisticsCard from "../StatisticsCard/StatisticsCard";
 import "./Statistics.scss";
 
 const Statistics: React.FC = () => {
+  const { state } = useContext(AppContext);
   return (
-    <section className="statistics">
+    <section className="statistics" style={{ opacity: state.connectWalletModal ? 0 : 1 }}>
       <h2>PROTOCOL ACTIVITY</h2>
       <div className="statistics__numbers">
         <div className="statistics__box">

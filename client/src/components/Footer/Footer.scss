@@ -7,6 +7,7 @@
   align-items: center;
   margin: 2rem 0;
   padding: 0 1rem;
+  transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
   @include breakpoint(xs) {
     flex-direction: column;

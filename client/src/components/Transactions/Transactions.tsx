@@ -9,7 +9,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
   const { currentAccount, transactions } = useContext(TransactionContext);
   return (
     <div className="transactions">
-      <div className="div">
+      <div className="transactions__inner">
         {currentAccount ? (
           <div className="transactionList">
             <h3 className="transactions--headline">Latest transactions</h3>
@@ -18,9 +18,9 @@ const Transactions: React.FC<TransactionsProps> = () => {
             ))}
           </div>
         ) : (
-          <h3 className="text">
+          <h4 className="text">
             Connect your account to see the latest transactions
-          </h3>
+          </h4>
         )}
       </div>
     </div>
