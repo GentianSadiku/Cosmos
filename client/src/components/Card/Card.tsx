@@ -1,8 +1,6 @@
 import React from "react";
 import "./Card.scss";
 
-import Logo from "../../assets/logo.svg";
-
 interface CardProps {
   backgroundColor?: string;
   icon?: string;
@@ -19,13 +17,10 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className="card" style={{ backgroundColor: backgroundColor }}>
       <header className="card__header">
-        <img src={Logo} alt="Icon" />
-        <h2>Fastest transactions</h2>
+        <img src={icon} alt="Icon" />
+        <h2>{title}</h2>
       </header>
-      <p>
-        Security is guaranted. We always maintain privacy and mainting the
-        quality of our products.
-      </p>
+      <p>{description}</p>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   const { state } = useContext(AppContext);
 
   return (
-    <header className="header" style={{ opacity: state.connectWalletModal ? 0 : 1 }}>
+    <header className="header" style={{ opacity: state.connectWalletModal ? 0.1 : 1 }}>
       <div className="header__logo">
         <img src={Logo} alt="Cosmos" />
       </div>
