@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "./stylesheets/main.scss";
-
 import { TransactionsProvider } from "./context/TransactionContext";
+import { AppProvider } from "./context/AppContext";
+import App from "./App";
+
+import "./stylesheets/main.scss";
 
 ReactDOM.render(
   <TransactionsProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <AppProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </AppProvider>
   </TransactionsProvider>,
   document.getElementById("root")
 );

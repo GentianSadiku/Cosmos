@@ -1,6 +1,9 @@
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import CostumIcon from "../CostumIcon/CostumIcon";
+import TransactionsSection from "../TransactionsSection/TransactionsSection";
 import { TransactionContext } from "../../context/TransactionContext";
+import { AppContext } from "../../context/AppContext";
+import { Types } from "../../context/reducers";
 import shortenAddress from "../../utils/shortenAddres";
 
 import "./ConnectWallet.scss";
@@ -9,10 +12,46 @@ interface ConnectWalletProps {}
 
 const ConnectWallet: React.FC<ConnectWalletProps> = () => {
   const { connectWallet, currentAccount } = useContext(TransactionContext);
+  const { state, dispatch } = useContext(AppContext);
+
+  const openModal = () => {
+    
+    // dispatch fn will be move on else statement
+    dispatch({
+      type: Types.connectWalletModalOpen,
+    });
+
+    if (!currentAccount) {
+      //connectWallet();
+    } else {
+      // dispatch({
+      //   type: Types.connectWalletModalOpen,
+      // });
+    }
+  };
+
+  useEffect(() => {
+    const escKey = (event: { key: string; }) => {
+      if (event.key === "Escape") {
+        dispatch({
+          type: Types.connectWalletModalClose,
+        });
+      }
+    };
+    
+    window.addEventListener("keydown", escKey);
+
+    return () => {
+      dispatch({
+        type: Types.connectWalletModalClose,
+      });
+      window.removeEventListener("keydown", escKey);
+    };
+  }, []);
 
   return (
-    <section className="connect-wallet">
-      <div className="connect-wallet__inner">
+    <section className={`connect-wallet ${state.connectWalletModal ? 'modal-open' : ''}`}>
+      <div className="connect-wallet__inner" >
         <div className="pt-left">
           <CostumIcon iconName="info" iconHeight="25px" iconWidth="25px" />
           <h4>Connect your account to see the latest transactions</h4>
@@ -25,7 +64,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = () => {
         <div className="pt-right">
           <button
             className="button button--transparent button--large"
-            onClick={() => connectWallet()}
+            onClick={() => openModal()}
           >
             <CostumIcon
               iconName="wallet-outline"
@@ -36,6 +75,8 @@ const ConnectWallet: React.FC<ConnectWalletProps> = () => {
           </button>
         </div>
       </div>
+
+      <TransactionsSection />
     </section>
   );
 };

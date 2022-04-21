@@ -9,6 +9,8 @@ $border-color: hsl(0, 0%, 41%);
   align-items: center;
   overflow: hidden;
   margin: 5rem 0;
+  transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
 
   &__numbers {
     display: grid;
