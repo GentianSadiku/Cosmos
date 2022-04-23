@@ -1,4 +1,7 @@
 .transactions {
+  overflow-y: auto;
+  max-height: 95%;
+
   &--headline {
     text-align: center;
   }
@@ -7,5 +10,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .transaction-list {
+    width: 100%;
   }
 }

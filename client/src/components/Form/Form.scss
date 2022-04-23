@@ -1,3 +1,5 @@
+@import "../../stylesheets/abstracts/mixins";
+
 .form {
   position: relative;
   display: flex;
@@ -12,5 +14,8 @@
     width: 1px;
     height: 100%;
     background: linear-gradient(0deg, transparent, #c8c8c8 50%, transparent);
+    @include breakpoint(xs) {
+      display: none;
+    }
   }
 }

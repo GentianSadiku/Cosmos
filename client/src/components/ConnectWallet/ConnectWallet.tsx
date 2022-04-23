@@ -15,7 +15,6 @@ const ConnectWallet: React.FC<ConnectWalletProps> = () => {
   const { state, dispatch } = useContext(AppContext);
 
   const openModal = () => {
-    
     // dispatch fn will be move on else statement
     dispatch({
       type: Types.connectWalletModalOpen,
@@ -31,14 +30,14 @@ const ConnectWallet: React.FC<ConnectWalletProps> = () => {
   };
 
   useEffect(() => {
-    const escKey = (event: { key: string; }) => {
+    const escKey = (event: { key: string }) => {
       if (event.key === "Escape") {
         dispatch({
           type: Types.connectWalletModalClose,
         });
       }
     };
-    
+
     window.addEventListener("keydown", escKey);
 
     return () => {
@@ -50,8 +49,12 @@ const ConnectWallet: React.FC<ConnectWalletProps> = () => {
   }, []);
 
   return (
-    <section className={`connect-wallet ${state.connectWalletModal ? 'modal-open' : ''}`}>
-      <div className="connect-wallet__inner" >
+    <section
+      className={`connect-wallet ${
+        state.connectWalletModal ? "modal-open" : ""
+      }`}
+    >
+      <div className="connect-wallet__inner">
         <div className="pt-left">
           <CostumIcon iconName="info" iconHeight="25px" iconWidth="25px" />
           <h4>Connect your account to see the latest transactions</h4>

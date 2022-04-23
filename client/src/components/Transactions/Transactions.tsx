@@ -12,7 +12,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
     <div className="transactions">
       <div className="transactions__inner">
         {currentAccount ? (
-          <div className="transactionList">
+          <div className="transaction-list">
             <h3 className="transactions--headline">Latest transactions</h3>
             {[...transactions].reverse().map((transaction: any, i: number) => (
               <Transaction key={i} {...transaction} />
