@@ -7,13 +7,14 @@ interface TransactionsProps {}
 
 const Transactions: React.FC<TransactionsProps> = () => {
   const { currentAccount, transactions } = useContext(TransactionContext);
+
   return (
     <div className="transactions">
       <div className="transactions__inner">
         {currentAccount ? (
           <div className="transactionList">
             <h3 className="transactions--headline">Latest transactions</h3>
-            {transactions.map((transaction: any, i: number) => (
+            {[...transactions].reverse().map((transaction: any, i: number) => (
               <Transaction key={i} {...transaction} />
             ))}
           </div>

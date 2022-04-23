@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import GradientLine from "../GradientLine/GradientLine";
+import { HeroData } from "../../utils/data";
 import "./Hero.scss";
 
 function Hero(): JSX.Element {
@@ -11,15 +12,10 @@ function Hero(): JSX.Element {
       className="hero"
       style={{ opacity: state.connectWalletModal ? 0 : 1 }}
     >
-      <h1>
-        SEND CRYPTO <br /> ACCROS THE WORLD
-      </h1>
+      <h1 style={{ whiteSpace: "pre-line" }}>{HeroData.title}</h1>
       <div className="description">
         <GradientLine className="gradient-line--static-width" />
-        <p>
-          Swap, earn, and build on the leading decentralized crypto trading
-          protocol.
-        </p>
+        <p>{HeroData.description}</p>
         <GradientLine className="gradient-line--static-width" />
       </div>
     </section>

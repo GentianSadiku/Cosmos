@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CostumIcon from "../CostumIcon/CostumIcon";
 
 import { TransactionContext } from "../../context/TransactionContext";
 import { AppContext } from "../../context/AppContext";
 import Logo from "../../assets/logo.svg";
+import Menu from "../../assets/icons/menu.svg";
 
 import "./Header.scss";
 import shortenAddress from "../../utils/shortenAddres";
@@ -12,22 +13,45 @@ const Header: React.FC = () => {
   const { connectWallet, currentAccount } = useContext(TransactionContext);
   const { state } = useContext(AppContext);
 
+  const [isCollapsed, setCollapsed] = useState<boolean>(false);
+  const collapsibleClass = isCollapsed
+    ? "collapsible  collapsible--expanded"
+    : "collapsible";
+  const collapsibleContent = isCollapsed ? "" : "collapsible__content";
+
+  const toggle = () => {
+    setCollapsed(!isCollapsed);
+  };
+
   return (
-    <header className="header" style={{ opacity: state.connectWalletModal ? 0.1 : 1 }}>
-      <div className="header__logo">
+    <nav
+      className={`nav ${collapsibleClass}`}
+      style={{ opacity: state.connectWalletModal ? 0.1 : 1 }}
+    >
+      <div className="nav__logo">
         <img src={Logo} alt="Cosmos" />
       </div>
 
-      <nav className="header__navigation">
-        <ul>
-          <li>Market</li>
-          <li>Ecosystem</li>
-          <li>Community</li>
-          <li>Blog</li>
-        </ul>
-      </nav>
+      <button onClick={toggle} className="nav__toggler">
+        <img src={Menu} alt="toggler" className="nav__toggler" />
+      </button>
 
-      <div className="header__wallet">
+      <ul className={`list nav__list ${collapsibleContent}`}>
+        <li className="nav__item">
+          <a href="#">Market</a>
+        </li>
+        <li className="nav__item">
+          <a href="#">Ecosystem</a>
+        </li>
+        <li className="nav__item">
+          <a href="#">Community</a>
+        </li>
+        <li className="nav__item">
+          <a href="#">Blog</a>
+        </li>
+      </ul>
+
+      <div className={`nav__wallet ${collapsibleContent}`}>
         <button
           className="button button--default"
           onClick={() => connectWallet()}
@@ -36,7 +60,7 @@ const Header: React.FC = () => {
           {currentAccount ? shortenAddress(currentAccount) : "Connect Wallet"}
         </button>
       </div>
-    </header>
+    </nav>
   );
 };
 

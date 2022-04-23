@@ -14,15 +14,27 @@ const Footer: React.FC<FooterProps> = () => {
       style={{ opacity: state.connectWalletModal ? 0 : 1 }}
     >
       <ul className="footer__list">
-        <li>MARKET</li>
-        <li>ECOSYSTEM</li>
-        <li>COMMUNITY</li>
-        <li>BLOG</li>
+        <li>
+          <a href="#">Market</a>
+        </li>
+        <li>
+          <a href="#">Ecosystem</a>
+        </li>
+        <li>
+          <a href="#">Community</a>
+        </li>
+        <li>
+          <a href="#">Blog</a>
+        </li>
       </ul>
 
       <ul className="footer__list">
-        <li>GITHUB</li>
-        <li>TWITTER</li>
+        <li>
+          <a href="#">Github</a>
+        </li>
+        <li>
+          <a href="#">Twitter</a>
+        </li>
       </ul>
     </footer>
   );

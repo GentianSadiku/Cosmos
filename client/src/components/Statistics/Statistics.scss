@@ -8,9 +8,8 @@ $border-color: hsl(0, 0%, 41%);
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin: 5rem 0;
+  margin-top: 3rem;
   transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-
 
   &__numbers {
     display: grid;

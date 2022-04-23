@@ -34,3 +34,34 @@ export const sectionServices = {
     },
   ],
 };
+
+export const protocolActivity = {
+  title: "PROTOCOL ACTIVITY",
+  protocol_statistics: [
+    {
+      number: "$830B+",
+      description: "Trade Volume",
+      className: "",
+    },
+    {
+      number: "$88M+",
+      description: "All Time Trades",
+      className: "statistics--middle",
+    },
+    {
+      number: "300K",
+      description: "Integrations",
+      className: "",
+    },
+  ],
+};
+
+export const HeroData = {
+  title: "SEND CRYPTO \nACCROS THE WORLD",
+  description:
+    "Swap, earn, and build on the leading decentralized crypto trading protocol.",
+};
+
+export const ConnectWalletData = {
+  title: "CONNECT YOUR ACCOUNT TO SEE THE LATEST TRANSACTIONS",
+};

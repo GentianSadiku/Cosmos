@@ -1,44 +1,89 @@
 @import "../../stylesheets/abstracts/mixins";
+@import "../../stylesheets/components/collapsible";
 
-.header {
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem 2rem;
   border-bottom: 1px solid #2e3644;
   transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-
-  @include breakpoint(sm) {
-    padding: 10px;
-  }
 
   @include breakpoint(md) {
     padding: 15px;
   }
-  
-  @include breakpoint(md) {
-    padding: 25px;
-  }
 
   &__logo {
     img {
-        max-width: 80px;
+      max-width: 80px;
     }
   }
 
-  &__navigation {
-    ul {
-      padding: 0;
-      margin: 0;
-      list-style-type: none;
+  .list {
+    list-style: none;
+    padding-left: 0;
 
-      li {
-        display: inline-block;
-        padding: 0 10px;
-        text-transform: uppercase;
-        font-size: 13px;
+    li {
+      font-size: 1.2rem;
+      @include breakpoint(sm) {
+        font-size: 1rem;
       }
     }
   }
 
+  &__list {
+    width: 100%;
+    margin: 0;
+    @include breakpoint(sm) {
+      width: auto;
+      display: flex;
+      font-size: 1.6rem;
+      max-height: 100%;
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    padding: 0.5rem 0rem;
+    border-bottom: 1px solid #222;
+  }
+
+  &__item > a {
+    color: #d2d0db;
+    transition: color 0.3s;
+    @include breakpoint(sm) {
+      padding: 1.4rem;
+    }
+  }
+
+  &__item > a:hover {
+    color: #fff;
+  }
+
+  &__toggler {
+    opacity: 1;
+    background-color: transparent;
+    border-width: 0;
+
+    cursor: pointer;
+    img {
+      stroke: white;
+      fill: white;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    @include breakpoint(sm) {
+      display: none;
+    }
+  }
+
+  &__wallet {
+    @include breakpoint(sm) {
+      max-height: 100%;
+      opacity: 1;
+    }
+  }
 }

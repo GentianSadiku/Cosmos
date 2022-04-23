@@ -1,23 +1,26 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import StatisticsCard from "../StatisticsCard/StatisticsCard";
+import { protocolActivity as statistic } from "../../utils/data";
 import "./Statistics.scss";
 
 const Statistics: React.FC = () => {
   const { state } = useContext(AppContext);
   return (
-    <section className="statistics" style={{ opacity: state.connectWalletModal ? 0 : 1 }}>
-      <h2>PROTOCOL ACTIVITY</h2>
+    <section
+      className="statistics"
+      style={{ opacity: state.connectWalletModal ? 0 : 1 }}
+    >
+      <h2>{statistic.title}</h2>
       <div className="statistics__numbers">
-        <div className="statistics__box">
-          <StatisticsCard number="$830B+" description="Trade Volume" />
-        </div>
-        <div className="statistics__box statistics--middle">
-          <StatisticsCard number="$88M+" description="All Time Trades" />
-        </div>
-        <div className="statistics__box">
-          <StatisticsCard number="300K" description="Integrations" />
-        </div>
+        {statistic.protocol_statistics.map((info, index) => (
+          <div className={`statistics__box ${info.className}`} key={index}>
+            <StatisticsCard
+              number={info.number}
+              description={info.description}
+            />
+          </div>
+        ))}
       </div>
     </section>
   );
